@@ -1,5 +1,5 @@
 const clientID = 'cb680117cadd43d6b1fa6e6255fa9a42';
-const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'http://localhost:3000';
 let token;
 
 const Spotify = {
@@ -65,7 +65,7 @@ const Spotify = {
         throw new Error('Error obtaining UserID');
       }).then( jsonResponse => {
         userID = jsonResponse.id;
-        return fetch(`https://api.spotify,com/v1/users/${userID}/playlists`, { method: 'POST', headers: headers, body: JSON.stringify({name: playlistName})}).then(
+        return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, { method: 'POST', headers: headers, body: JSON.stringify({name: playlistName})}).then(
           response => {
             if (response.ok){
               return response.json()
